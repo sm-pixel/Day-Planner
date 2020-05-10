@@ -2,28 +2,33 @@ var currentDateAndTime = Date(Date.now());
 
 var currentHour = new Date().getHours();
 
-var saveBtn = $(".btn");
-
 $("#currentDay").append(currentDateAndTime)
 
-//loop through currentHour blocks and change color according to currentTime
-for (let i = 9; i < 17; i++) {
+//loop through currentHour blocks and change color according to current time
+for (let i = 9; i < 18; i++) {
     var toDoText = localStorage.getItem("hour" + i)
-    //if the current time is not shown on the page then
     if (toDoText !== null) {
         $("#text" + i).val(toDoText)
     }
     console.log(currentHour)
-    //this makes the slot(s) grey if the current time has already passed
+    //turns gray if already passed
     if (currentHour > i) {
         $("#text" + i).addClass("past")
     }
-    //this makes the slot red if it is the current time
+    //turns red if current time 
     else if (parseInt(currentHour) === i) {
         $("#text" + i).addClass("present")
     }
-    // this makes the slot(s) green if it is ahead of the current time
+    //turns green ahead of current time
     else {
         $("#text" + i).addClass("future")
     }
 }
+
+$(".saveBtn").on("click", function () {
+    var presentHour = $(this).parent().attr("id");
+    var textArea = $("textArea").val().trim();
+
+    localStorage.setItem(presentHour, textArea);
+    console.log(presentHour, textArea);
+});
