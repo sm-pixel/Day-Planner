@@ -7,7 +7,7 @@ A simple calendar that allows you to save tasks each hour of the day so that you
 [Working Day Planner](https://sm-pixel.github.io/Day-Planner/)
 
 ## Demo
-[Image of working Day Planner](assets/images/workdayscheduler.png)
+![Image of working Day Planner](assets/images/workdayscheduler.png)
 
 ## User Story
 
